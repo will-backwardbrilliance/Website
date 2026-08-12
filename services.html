@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | Backward Brilliance — Will Hammond</title>
+  <meta name="description" content="Work with Will Hammond: keynotes, half-day workshops, 1:1 coaching, and company transformations built on the Backward Brilliance method." />
+  <meta name="author" content="Will Hammond" />
+  <link rel="canonical" href="https://backwardbrilliance.com/services.html" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://backwardbrilliance.com/services.html" />
+  <meta property="og:title" content="Services | Backward Brilliance — Will Hammond" />
+  <meta property="og:description" content="Keynotes, workshops, 1:1 coaching, and company transformations built on the Backward Brilliance method." />
+  <meta property="og:image" content="https://backwardbrilliance.com/og-image-individual.jpg" />
+  <meta property="og:site_name" content="Backward Brilliance" />
+
+  <!--
+  ============================================================
+  STRIPE PAYMENT LINKS — REPLACE BEFORE GOING LIVE
+  Swap each placeholder href below with your live Stripe
+  Payment Link. Search this file for "PASTE_" to find them:
+    PASTE_KEYNOTE_DEPOSIT_LINK   → Keynote deposit ($1,000)
+    PASTE_WORKSHOP_LINK          → Half-Day Workshop ($15,000)
+    PASTE_COACHING_3MO_LINK      → 1:1 Coaching, 3 months ($6,000)
+    PASTE_COACHING_6MO_LINK      → 1:1 Coaching, 6 months ($10,000)
+    PASTE_COACHING_VIP_LINK      → 1:1 VIP, 1 year ($120,000)
+  "Book a call" buttons use the existing Calendly link.
+  ============================================================
+  -->
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:  #0a0a0a;
+      --white:  #f8f6f1;
+      --orange: #e85d26;
+      --mid:    #4a4a4a;
+      --rule:   #d8d3cb;
+      --card:   #f0ede6;
+      --serif:  'Georgia', 'Times New Roman', serif;
+      --sans:   'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--white); color: var(--black); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 56px; display: flex; align-items: center; justify-content: space-between;
+      padding: 0 20px; background: var(--white); border-bottom: 1px solid var(--rule);
+    }
+    .nav-logo { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+    .nav-hamburger { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 44px; height: 44px; cursor: pointer; background: none; border: none; padding: 10px; }
+    .nav-hamburger span { display: block; width: 22px; height: 1.5px; background: var(--black); transition: transform 0.2s, opacity 0.2s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .nav-drawer { display: none; position: fixed; top: 56px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--rule); padding: 20px; z-index: 99; }
+    .nav-drawer.open { display: block; }
+    .nav-drawer ul { list-style: none; }
+    .nav-drawer ul li { border-bottom: 1px solid var(--rule); }
+    .nav-drawer ul li a { display: block; padding: 16px 0; font-size: 15px; color: var(--mid); }
+    .nav-drawer ul li a:hover { color: var(--orange); }
+    .nav-drawer .drawer-cta { display: block; margin-top: 16px; padding: 14px 24px; background: var(--orange); color: var(--white); font-size: 14px; font-weight: 700; text-align: center; }
+    .nav-links { display: none; }
+    .nav-cta-inline { display: none; }
+    .nav-door.active { color: var(--black) !important; font-weight: 700; }
+
+    .label { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; }
+
+    .btn { display: block; width: 100%; padding: 16px 24px; font-size: 15px; font-weight: 700; letter-spacing: 0.04em; border: 1.5px solid; cursor: pointer; transition: background 0.18s, color 0.18s, border-color 0.18s; font-family: var(--sans); text-align: center; }
+    .btn-primary { background: var(--orange); color: var(--white); border-color: var(--orange); }
+    .btn-primary:hover { background: var(--black); border-color: var(--black); }
+    .btn-ghost { background: transparent; color: var(--mid); border-color: var(--rule); }
+    .btn-ghost:hover { background: var(--black); color: var(--white); border-color: var(--black); }
+
+    /* HERO */
+    #s-hero { padding: 120px 20px 56px; background: var(--black); color: var(--white); }
+    #s-hero .label { color: var(--orange); margin-bottom: 20px; }
+    #s-hero h1 { font-family: var(--serif); font-size: clamp(34px, 8vw, 64px); font-weight: 400; line-height: 1.05; margin-bottom: 24px; }
+    #s-hero h1 em { font-style: normal; color: var(--orange); }
+    #s-hero p { font-size: 16px; color: rgba(255,255,255,0.5); line-height: 1.7; max-width: 58ch; }
+
+    /* SERVICES */
+    #services { padding: 8px 20px 40px; }
+    .svc {
+      border: 1px solid var(--rule); background: var(--white);
+      padding: 36px 24px; margin-top: 20px;
+    }
+    .svc:first-child { margin-top: 24px; }
+    .svc-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
+    .svc-head { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
+    .svc h2 { font-family: var(--serif); font-size: clamp(26px, 6vw, 40px); font-weight: 400; line-height: 1.08; }
+    .svc-price { font-size: 15px; font-weight: 700; color: var(--black); letter-spacing: 0.01em; }
+    .svc-price span { color: var(--mid); font-weight: 400; }
+    .svc-desc { font-size: 15px; color: var(--mid); line-height: 1.75; max-width: 66ch; margin-bottom: 22px; }
+    .svc-includes { list-style: none; margin: 0 0 26px; padding: 0; display: grid; grid-template-columns: 1fr; gap: 10px; }
+    .svc-includes li { position: relative; padding-left: 24px; font-size: 14px; color: var(--mid); line-height: 1.5; }
+    .svc-includes li::before { content: ''; position: absolute; left: 0; top: 6px; width: 9px; height: 6px; border-left: 1.5px solid var(--orange); border-bottom: 1.5px solid var(--orange); transform: rotate(-45deg); }
+
+    /* Talk options for keynote */
+    .svc-subhead { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--black); margin: 2px 0 14px; }
+    .talks { border: 1px solid var(--rule); margin: 0 0 26px; }
+    .talk { padding: 22px 20px; background: var(--card); border-bottom: 1px solid var(--rule); }
+    .talk:last-child { border-bottom: none; }
+    .talk .talk-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 8px; }
+    .talk h3 { font-family: var(--serif); font-size: 20px; font-weight: 400; line-height: 1.18; margin-bottom: 10px; }
+    .talk p { font-size: 13.5px; color: var(--mid); line-height: 1.65; }
+
+    /* Tier cards for coaching */
+    .tiers { display: grid; grid-template-columns: 1fr; gap: 12px; margin: 4px 0 26px; }
+    .tier { border: 1px solid var(--rule); background: var(--card); padding: 22px 20px; display: flex; flex-direction: column; }
+    .tier.featured { border-color: var(--orange); }
+    .tier-flag { font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; }
+    .tier h3 { font-family: var(--serif); font-size: 21px; font-weight: 400; line-height: 1.1; margin-bottom: 6px; }
+    .tier-price { font-size: 24px; font-weight: 700; color: var(--black); margin-bottom: 4px; }
+    .tier-note { font-size: 13px; color: var(--mid); line-height: 1.55; margin-bottom: 18px; flex: 1; }
+    .tier .btn { margin-top: auto; }
+
+    .svc-actions { display: flex; flex-direction: column; gap: 10px; }
+
+    /* CLOSER */
+    #closer { background: var(--black); color: var(--white); padding: 80px 20px; text-align: center; }
+    #closer .label { color: rgba(255,255,255,0.28); margin-bottom: 20px; }
+    #closer h2 { font-family: var(--serif); font-size: clamp(30px, 8vw, 56px); font-weight: 400; line-height: 1.05; margin-bottom: 18px; }
+    #closer h2 em { font-style: normal; color: var(--orange); }
+    #closer p { font-size: 15px; color: rgba(255,255,255,0.5); max-width: 46ch; margin: 0 auto 32px; line-height: 1.7; }
+    #closer .btn { display: inline-block; width: auto; }
+
+    /* FOOTER */
+    footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06); padding: 48px 20px 32px; }
+    .footer-logo { font-size: clamp(18px, 4vw, 26px); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange); display: block; margin-bottom: 10px; line-height: 1; }
+    .footer-tagline { font-size: 14px; color: var(--white); line-height: 1.5; margin-bottom: 28px; max-width: 40ch; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 18px; margin-bottom: 32px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.45); }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.2); padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); }
+
+    @media (min-width: 720px) {
+      #s-hero { padding: 140px 48px 72px; }
+      #services { padding: 8px 48px 56px; }
+      .svc { padding: 48px 44px; margin-top: 24px; }
+      .svc-head { flex-direction: row; align-items: flex-end; justify-content: space-between; gap: 24px; }
+      .svc-includes { grid-template-columns: 1fr 1fr; gap: 12px 32px; }
+      .svc-actions { flex-direction: row; }
+      .svc-actions .btn { width: auto; }
+      .tiers { grid-template-columns: repeat(3, 1fr); }
+      #closer { padding: 120px 48px; }
+      footer { padding: 64px 48px 40px; }
+    }
+    @media (min-width: 1024px) {
+      nav { height: 64px; padding: 0 48px; }
+      .nav-hamburger { display: none; }
+      .nav-links { display: flex; gap: 36px; list-style: none; font-size: 13px; color: var(--mid); }
+      .nav-links a:hover { color: var(--orange); }
+      .nav-cta-inline { display: block; font-size: 13px; font-weight: 700; color: var(--orange); }
+      .nav-drawer { display: none !important; }
+      #s-hero { padding-top: 160px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Backward Brilliance</a>
+  <ul class="nav-links">
+    <li><a href="the-method.html" class="nav-door">The Method</a></li>
+    <li><a href="about.html" class="nav-door">About</a></li>
+    <li><a href="services.html" class="nav-door active">Services</a></li>
+  </ul>
+  <a href="https://calendly.com/will_backwardbrilliance/strategy-session-with-will" target="_blank" class="nav-cta-inline">Let's talk →</a>
+  <button class="nav-hamburger" aria-label="Open menu" onclick="toggleNav(this)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-drawer" id="navDrawer">
+  <ul>
+    <li><a href="the-method.html" onclick="closeNav()">The Method</a></li>
+    <li><a href="about.html" onclick="closeNav()">About</a></li>
+    <li><a href="services.html" onclick="closeNav()" style="font-weight:700;color:var(--black);">Services</a></li>
+  </ul>
+  <a href="https://calendly.com/will_backwardbrilliance/strategy-session-with-will" target="_blank" class="drawer-cta" onclick="closeNav()">Let's talk →</a>
+</div>
+
+
+<!-- HERO -->
+<section id="s-hero">
+  <p class="label">Services</p>
+  <h1>Many paths,<br>one shared <em>outcome.</em></h1>
+  <p>Keynote, workshop, coaching, or company-wide change: every path runs on the same method, start with what could be, then work backward to make it real. And they all lead to the same place, growth built on better ideas, not bigger budgets.</p>
+</section>
+
+
+<!-- SERVICES -->
+<section id="services">
+
+  <!-- KEYNOTE -->
+  <div class="svc">
+    <p class="svc-tag">Get inspired</p>
+    <div class="svc-head">
+      <h2>Keynote</h2>
+      <p class="svc-price">$7,500 <span>· $1,000 deposit to reserve your dates</span></p>
+    </div>
+    <p class="svc-desc">A signature talk that hands your audience a way of thinking, not just a feeling. They leave understanding why the idea, not the effort, is the edge, and with a tool they can use the next morning. Choose the talk that fits your room.</p>
+
+    <p class="svc-subhead">Choose your talk</p>
+    <div class="talks">
+      <div class="talk">
+        <p class="talk-eyebrow">Backward Brilliance</p>
+        <h3>How to Grow on Better Ideas, Not Bigger Budgets</h3>
+        <p>For teams told to grow without more money. Budget doesn't create the advantage; thinking does. Will shows how to surface the advantage already hiding in your business and turn better ideas, not bigger spend, into your growth engine. The room leaves with a repeatable way to out-think, not outspend, the competition.</p>
+      </div>
+      <div class="talk">
+        <p class="talk-eyebrow">Backward Brilliance</p>
+        <h3>How to Create Equity-Building Solutions</h3>
+        <p>A brilliant idea does more than fix the problem in front of you; it raises the standard and builds an advantage you keep. Will teaches leaders how to generate ideas that win twice: solving today's problem while building equity that compounds tomorrow. The payoff is growth that pulls the business ahead, not just level.</p>
+      </div>
+      <div class="talk">
+        <p class="talk-eyebrow">Backward Brilliance</p>
+        <h3>How to Build the Taste That Wins in an AI World</h3>
+        <p>AI has made making anything fast, cheap, and infinite. It can't tell which idea is good. The human edge is now taste and judgment: knowing what's brilliant and choosing it. Will shows leaders how to build the one skill AI can't replicate and make it their advantage in a market where everyone has the same tools.</p>
+      </div>
+    </div>
+
+    <div class="svc-actions">
+      <!-- TODO: replace with live Stripe Payment Link for the $1,000 deposit -->
+      <a href="https://buy.stripe.com/14A8wJ4EWcNc0id42b9R609" class="btn btn-primary">Reserve your dates — $1,000 deposit</a>
+      <a href="https://calendly.com/will_backwardbrilliance/strategy-session-with-will" target="_blank" rel="noopener" class="btn btn-ghost">Book a call</a>
+    </div>
+  </div>
+
+  <!-- HALF-DAY WORKSHOP -->
+  <div class="svc">
+    <p class="svc-tag">Learn the Tools</p>
+    <div class="svc-head">
+      <h2>½-Day Workshop</h2>
+      <p class="svc-price">$15,000</p>
+    </div>
+    <p class="svc-desc">A hands-on half day where your team learns the Backward Brilliance tools and how to use them. They don't just hear the method, they practice it, then keep the skill for every brief that follows.</p>
+    <ul class="svc-includes">
+      <li>Up to a half day, on-site or virtual</li>
+      <li>The core Backward Brilliance tools, taught hands-on</li>
+      <li>The IDEATE process, run end to end</li>
+      <li>A repeatable skill the team keeps for good</li>
+    </ul>
+    <div class="svc-actions">
+      <!-- TODO: replace with live Stripe Payment Link for $15,000 -->
+      <a href="https://buy.stripe.com/7sYbIVfjA00qaWR1U39R606" class="btn btn-primary">Purchase — $15,000</a>
+      <a href="https://calendly.com/will_backwardbrilliance/transformation_audit_with_will" target="_blank" rel="noopener" class="btn btn-ghost">Book a call</a>
+    </div>
+  </div>
+
+  <!-- 1:1 COACHING -->
+  <div class="svc">
+    <p class="svc-tag">Become a Pro</p>
+    <div class="svc-head">
+      <h2>1:1 Coaching</h2>
+      <p class="svc-price">From $6,000</p>
+    </div>
+    <p class="svc-desc">Ongoing 1:1 work through the full framework, rewiring how you think, how you lead, and what you hold your team to. Choose the depth that fits where you are.</p>
+
+    <div class="tiers">
+      <div class="tier">
+        <p class="tier-flag">3 Months</p>
+        <h3>Kickstart</h3>
+        <p class="tier-price">$6,000</p>
+        <p class="tier-note">A focused quarter to rewire your thinking and leave with one clear direction you own.</p>
+        <!-- TODO: replace with live Stripe Payment Link for $6,000 -->
+        <a href="https://buy.stripe.com/cNi8wJfjA14uaWR56f9R607" class="btn btn-primary">Purchase</a>
+      </div>
+      <div class="tier">
+        <p class="tier-flag">6 Months</p>
+        <h3>Deepen</h3>
+        <p class="tier-price">$10,000</p>
+        <p class="tier-note">Twice the runway to make the shift stick: habits that hold and a standard that compounds.</p>
+        <!-- TODO: replace with live Stripe Payment Link for $10,000 -->
+        <a href="https://buy.stripe.com/14A4gtc7o4gGd4ZfKT9R608" class="btn btn-primary">Purchase</a>
+      </div>
+      <div class="tier featured">
+        <p class="tier-flag">1 Year · VIP</p>
+        <h3>Brilliant Package</h3>
+        <p class="tier-price">$120,000</p>
+        <p class="tier-note">Will fully in your corner for a year. Embedded, on call, and invested in every move that matters.</p>
+        <!-- TODO: replace with live Stripe Payment Link for $120,000 -->
+        <a href="https://buy.stripe.com/28E6oB6N4aF41mhbuD9R605" class="btn btn-primary">Purchase</a>
+      </div>
+    </div>
+
+    <div class="svc-actions">
+      <a href="https://calendly.com/will_backwardbrilliance/transformation_audit_with_will" target="_blank" rel="noopener" class="btn btn-ghost">Not sure which? Book a call</a>
+    </div>
+  </div>
+
+  <!-- COMPANY TRANSFORMATION -->
+  <div class="svc">
+    <p class="svc-tag">Create a Culture of Innovation</p>
+    <div class="svc-head">
+      <h2>Company Transformation</h2>
+      <p class="svc-price">From $30,000 <span>· scoped to your company</span></p>
+    </div>
+    <p class="svc-desc">A company-wide engagement that builds a culture of innovation, embedding idea-led growth as the way you operate. A higher standard and better ideas become the default across teams, not the occasional exception.</p>
+    <ul class="svc-includes">
+      <li>Tailored to your size, structure, and goals</li>
+      <li>Leadership and team enablement</li>
+      <li>The method installed as an operating system</li>
+      <li>A culture of innovation that sticks after we're done</li>
+    </ul>
+    <div class="svc-actions">
+      <a href="https://calendly.com/will_backwardbrilliance/transformation_audit_with_will" target="_blank" rel="noopener" class="btn btn-primary">Book a call</a>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- CLOSER -->
+<section id="closer">
+  <p class="label">Not sure where to start?</p>
+  <h2>Let's find the<br><em>right fit.</em></h2>
+  <p>No pitch. Just a conversation about where you are and what you're trying to reach. If there's a fit, we figure out the right way to work together.</p>
+  <a href="https://calendly.com/will_backwardbrilliance/strategy-session-with-will" target="_blank" rel="noopener" class="btn btn-primary">Book a call →</a>
+</section>
+
+
+<footer>
+  <a href="index.html" class="footer-logo">Will Hammond</a>
+  <p class="footer-tagline">Helping ambitious leaders grow on better ideas, not bigger budgets.</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="the-method.html">The Method</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="mailto:will@backwardbrilliance.com">will@backwardbrilliance.com</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </div>
+  <p class="footer-copy">© 2026 Backward Brilliance. All rights reserved.</p>
+</footer>
+
+<script>
+  function toggleNav(btn) {
+    btn.classList.toggle('open');
+    document.getElementById('navDrawer').classList.toggle('open');
+  }
+  function closeNav() {
+    document.querySelector('.nav-hamburger').classList.remove('open');
+    document.getElementById('navDrawer').classList.remove('open');
+  }
+</script>
+
+</body>
+</html>

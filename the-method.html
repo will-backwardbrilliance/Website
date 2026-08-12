@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Method | Backward Brilliance &mdash; Will Hammond</title>
+  <meta name="description" content="The Backward Brilliance method: start with what could be and work backward. The Signature OS turns brilliant thinking into a repeatable capability." />
+  <meta name="author" content="Will Hammond" />
+  <link rel="canonical" href="https://backwardbrilliance.com/the-method.html" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://backwardbrilliance.com/the-method.html" />
+  <meta property="og:title" content="The Method | Backward Brilliance" />
+  <meta property="og:description" content="Start with what could be. Work backward to make it real. The Signature OS explained." />
+  <meta property="og:image" content="https://backwardbrilliance.com/og-image-individual.jpg" />
+  <meta property="og:site_name" content="Backward Brilliance" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:  #0a0a0a;
+      --white:  #f8f6f1;
+      --orange: #e85d26;
+      --mid:    #4a4a4a;
+      --rule:   #d8d3cb;
+      --card:   #f0ede6;
+      --serif:  'Georgia', 'Times New Roman', serif;
+      --sans:   'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--white); color: var(--black); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 56px; display: flex; align-items: center; justify-content: space-between;
+      padding: 0 20px; background: var(--white); border-bottom: 1px solid var(--rule);
+    }
+    .nav-logo { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+    .nav-hamburger {
+      display: flex; flex-direction: column; justify-content: center; gap: 5px;
+      width: 44px; height: 44px; cursor: pointer; background: none; border: none; padding: 10px;
+    }
+    .nav-hamburger span { display: block; width: 22px; height: 1.5px; background: var(--black); transition: transform 0.2s, opacity 0.2s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .nav-drawer {
+      display: none; position: fixed; top: 56px; left: 0; right: 0;
+      background: var(--white); border-bottom: 1px solid var(--rule); padding: 20px; z-index: 99;
+    }
+    .nav-drawer.open { display: block; }
+    .nav-drawer ul { list-style: none; }
+    .nav-drawer ul li { border-bottom: 1px solid var(--rule); }
+    .nav-drawer ul li a { display: block; padding: 16px 0; font-size: 15px; color: var(--mid); }
+    .nav-drawer ul li a:hover { color: var(--orange); }
+    .nav-drawer .drawer-cta { display: block; margin-top: 16px; padding: 14px 24px; background: var(--orange); color: var(--white); font-size: 14px; font-weight: 700; text-align: center; }
+    .nav-links { display: none; }
+    .nav-cta-inline { display: none; }
+    .nav-door.active { color: var(--black) !important; font-weight: 700; }
+
+    /* SHARED */
+    .label { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; }
+    .img-box { background: #e8e4dc; position: relative; overflow: hidden; }
+    .img-box::before { content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom right, transparent calc(50% - .5px), #d0ccc4 calc(50% - .5px), #d0ccc4 calc(50% + .5px), transparent calc(50% + .5px)),
+                  linear-gradient(to bottom left,  transparent calc(50% - .5px), #d0ccc4 calc(50% - .5px), #d0ccc4 calc(50% + .5px), transparent calc(50% + .5px)); }
+    .img-box span { position: absolute; bottom: 16px; left: 20px; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); opacity: 0.45; }
+    .img-box-dark { background: #1a1a1a; }
+
+    .btn { display: block; width: 100%; padding: 16px 24px; font-size: 15px; font-weight: 700; letter-spacing: 0.04em; border: 1.5px solid; cursor: pointer; transition: background 0.18s, color 0.18s, border-color 0.18s; font-family: var(--sans); text-align: center; }
+    .btn-primary { background: var(--orange); color: var(--white); border-color: var(--orange); }
+    .btn-primary:hover { background: var(--black); border-color: var(--black); }
+    .btn-ghost { background: transparent; color: var(--mid); border-color: var(--rule); }
+    .btn-ghost:hover { background: var(--black); color: var(--white); border-color: var(--black); }
+
+    /* HERO */
+    #hero { padding-top: 56px; display: flex; flex-direction: column; }
+    .hero-text { display: flex; flex-direction: column; justify-content: flex-end; padding: 48px 20px 40px; }
+    .hero-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 24px; }
+    h1 { font-family: var(--serif); font-size: clamp(36px, 9vw, 72px); line-height: 1.04; font-weight: 400; margin-bottom: 28px; }
+    h1 em { font-style: normal; color: var(--orange); }
+    .hero-promise { font-family: var(--serif); font-size: clamp(16px, 4vw, 22px); line-height: 1.6; color: var(--mid); margin-bottom: 36px; }
+    .hero-promise strong { color: var(--black); font-style: normal; font-weight: 600; }
+    .hero-actions { display: flex; flex-direction: column; gap: 10px; }
+    .hero-visual { position: relative; }
+    .hero-visual .img-box { width: 100%; height: 300px; }
+    .hero-pull { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px 20px; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%); }
+    .hero-pull p { font-family: var(--serif); font-size: 15px; font-style: italic; color: rgba(255,255,255,0.85); line-height: 1.5; }
+    .hero-pull em { font-style: italic; color: var(--orange); }
+
+    /* PROBLEM */
+    #problem { background: var(--black); color: var(--white); padding: 60px 20px; }
+    .problem-header { margin-bottom: 48px; }
+    .problem-header .label { color: rgba(255,255,255,0.28); margin-bottom: 16px; }
+    h2.problem-h2 { font-family: var(--serif); font-size: clamp(28px, 7vw, 50px); font-weight: 400; line-height: 1.1; margin-bottom: 20px; }
+    h2.problem-h2 em { font-style: normal; color: var(--orange); }
+
+    /* Equation block */
+    .equation-block { margin-top: 2px; padding: 28px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+    .eq-term { font-family: var(--serif); font-size: clamp(13px, 2vw, 17px); font-style: italic; color: rgba(255,255,255,0.6); }
+    .eq-op { font-size: 18px; color: rgba(255,255,255,0.2); font-weight: 300; }
+    .eq-equals { font-size: 20px; color: var(--orange); font-weight: 300; flex-shrink: 0; }
+    .eq-result { font-family: var(--serif); font-size: clamp(15px, 2.5vw, 20px); font-style: italic; color: var(--orange); font-weight: 400; }
+    .problem-aside { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.65; }
+    .pain-grid { display: grid; grid-template-columns: 1fr; border-top: 1px solid rgba(255,255,255,0.07); border-left: 1px solid rgba(255,255,255,0.07); }
+    .pain-card { padding: 32px 24px; border-right: 1px solid rgba(255,255,255,0.07); border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .pain-num { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.12); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: var(--orange); margin-bottom: 18px; }
+    .pain-card p { font-family: var(--serif); font-size: 17px; font-style: italic; line-height: 1.55; color: rgba(255,255,255,0.78); }
+
+    /* Arc */
+    .arc { margin-top: 56px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.07); display: flex; flex-direction: column; }
+    .arc-header-row { display: flex; align-items: center; gap: 12px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 4px; }
+    .arc-header-from { flex: 1; font-family: var(--serif); font-size: clamp(22px, 4vw, 38px); font-weight: 400; letter-spacing: 0; text-transform: none; color: rgba(255,255,255,0.28); text-align: right; line-height: 1.1; }
+    .arc-header-spacer { width: 32px; flex-shrink: 0; }
+    .arc-header-to { flex: 1; font-family: var(--serif); font-size: clamp(22px, 4vw, 38px); font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--orange); text-align: left; line-height: 1.1; }
+    .arc-row { display: flex; align-items: center; gap: 0; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .arc-from { flex: 1; font-size: 13px; line-height: 1.5; color: rgba(255,255,255,0.3); text-align: right; padding-right: 16px; }
+    .arc-arrow { color: var(--orange); font-size: 14px; flex-shrink: 0; width: 32px; text-align: center; }
+    .arc-to { flex: 1; font-size: 13px; line-height: 1.5; color: rgba(255,255,255,0.85); text-align: left; padding-left: 16px; }
+
+    /* FOR YOU */
+    #for-you { background: var(--card); padding: 60px 20px; }
+    .for-you-header { margin-bottom: 40px; }
+    .for-you-header .label { color: var(--orange); margin-bottom: 14px; }
+    h2.for-you-h2 { font-family: var(--serif); font-size: clamp(26px, 6vw, 42px); font-weight: 400; line-height: 1.15; }
+    h2.for-you-h2 em { font-style: normal; color: var(--orange); }
+    .for-you-grid { display: grid; grid-template-columns: 1fr; gap: 2px; }
+    .for-you-card { background: var(--white); padding: 28px 24px; display: flex; align-items: flex-start; gap: 18px; }
+    .for-you-check { flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; background: rgba(0,0,0,0.12); display: flex; align-items: center; justify-content: center; margin-top: 3px; transition: background 0.35s ease; }
+    .for-you-check::after { content: ''; display: block; width: 8px; height: 5px; border-left: 1.5px solid white; border-bottom: 1.5px solid white; transform: rotate(-45deg) translateY(-1px); opacity: 0; transition: opacity 0.35s ease; }
+    .for-you-card.checked .for-you-check { background: var(--orange); }
+    .for-you-card.checked .for-you-check::after { opacity: 1; }
+    .for-you-card p { font-size: 15px; line-height: 1.6; color: var(--mid); }
+
+    /* HOW IT WORKS */
+    #how-it-works { background: var(--black); color: var(--white); padding: 60px 20px; }
+    .how-header { margin-bottom: 48px; }
+    .how-header .label { color: rgba(255,255,255,0.28); margin-bottom: 14px; }
+    h2.how-h2 { font-family: var(--serif); font-size: clamp(26px, 6vw, 42px); font-weight: 400; line-height: 1.15; margin-bottom: 12px; }
+    .how-sub { font-size: 15px; color: rgba(255,255,255,0.45); line-height: 1.65; max-width: 52ch; }
+    .rewire-grid { display: flex; flex-direction: column; gap: 2px; }
+    .rewire-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); padding: 32px 28px; }
+    .rewire-num { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: var(--orange); margin-bottom: 16px; }
+    .rewire-card h3 { font-family: var(--serif); font-size: clamp(18px, 3vw, 22px); font-weight: 400; line-height: 1.2; margin-bottom: 12px; color: var(--white); }
+    .rewire-card p { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.7; }
+    .how-result { margin-top: 2px; padding: 28px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); display: flex; align-items: center; gap: 16px; }
+    .how-result-eq { font-size: 22px; color: var(--orange); font-weight: 300; flex-shrink: 0; }
+    .how-result-text { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.5; }
+    .how-result-text strong { color: var(--white); font-weight: 600; }
+
+    /* STORY */
+    #story { display: flex; flex-direction: column; }
+    .story-visual .img-box { width: 100%; height: 280px; }
+    .story-text { padding: 48px 20px; display: flex; flex-direction: column; justify-content: center; }
+    .story-text .label { color: var(--orange); margin-bottom: 16px; }
+    h2.story-h2 { font-family: var(--serif); font-size: clamp(24px, 6vw, 40px); font-weight: 400; line-height: 1.15; margin-bottom: 24px; }
+    .story-text p { font-size: 15px; line-height: 1.8; color: var(--mid); margin-bottom: 14px; }
+    .story-text p strong { color: var(--black); font-weight: 600; }
+    .story-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 28px; }
+
+    /* LOGOS */
+    #logos { background: var(--card); padding: 48px 20px; }
+    .logos-label { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(0,0,0,0.28); text-align: center; margin-bottom: 32px; }
+    .logos-grid { display: flex; flex-wrap: wrap; gap: 2px; justify-content: center; margin-bottom: 28px; }
+    .logo-placeholder { width: 120px; height: 52px; background: rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(0,0,0,0.2); }
+    .logos-categories { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .cat-pill { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(0,0,0,0.35); padding: 6px 14px; border: 1px solid rgba(0,0,0,0.12); }
+
+    /* PROOF */
+    #proof { background: var(--orange); color: var(--white); padding: 60px 20px; }
+    .proof-inner { max-width: 740px; margin: 0 auto; text-align: center; }
+    .awards-row { text-align: center; margin-bottom: 56px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+    .proof-mark { font-family: var(--serif); font-size: 64px; line-height: 0.7; opacity: 0.25; margin-bottom: 28px; }
+    .proof-quote { font-family: var(--serif); font-size: clamp(20px, 5vw, 38px); font-style: italic; font-weight: 400; line-height: 1.4; margin-bottom: 24px; }
+    .proof-attribution { font-size: 13px; color: rgba(255,255,255,0.65); }
+    .proof-attribution strong { display: block; color: var(--white); font-weight: 600; font-size: 14px; margin-bottom: 2px; }
+    .proof-row { display: flex; flex-direction: column; gap: 2px; margin-top: 48px; text-align: left; }
+    .proof-card { padding: 28px 24px; background: rgba(0,0,0,0.14); }
+    .proof-card .ptag { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 14px; }
+    .proof-card blockquote { font-family: var(--serif); font-size: 16px; font-style: italic; line-height: 1.55; color: var(--white); margin-bottom: 12px; }
+    .proof-card cite { font-size: 12px; font-style: normal; color: rgba(255,255,255,0.55); }
+    .proof-card cite strong { display: block; color: rgba(255,255,255,0.8); font-weight: 600; font-size: 13px; }
+
+    /* FRAMEWORK */
+    #signature-os { background: var(--white); padding: 60px 20px; }
+    .framework-head { margin-bottom: 40px; }
+    .framework-head .label { color: var(--orange); margin-bottom: 14px; }
+    .framework-gem { font-size: 15px; color: var(--orange); font-weight: 500; letter-spacing: 0.01em; margin-bottom: 20px; }
+    h2.framework-h2 { font-family: var(--serif); font-size: clamp(28px, 7vw, 48px); font-weight: 400; line-height: 1.1; margin-bottom: 12px; }
+    .framework-intro { font-size: 15px; color: var(--mid); line-height: 1.65; }
+    .steps-grid { display: grid; grid-template-columns: 1fr; gap: 2px; margin-top: 36px; }
+    .step-card { background: var(--card); padding: 28px 24px; display: flex; gap: 20px; align-items: flex-start; }
+    .step-num { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: var(--orange); flex-shrink: 0; padding-top: 3px; }
+    .step-body h3 { font-family: var(--serif); font-size: 20px; font-weight: 400; line-height: 1.2; margin-bottom: 8px; }
+    .step-body p { font-size: 13px; color: var(--mid); line-height: 1.65; }
+
+    /* GET IT */
+    #get-it { background: var(--black); color: var(--white); padding: 60px 20px; }
+    .get-it-header { margin-bottom: 40px; }
+    .get-it-header .label { color: rgba(255,255,255,0.28); margin-bottom: 14px; }
+    h2.get-it-h2 { font-family: var(--serif); font-size: clamp(28px, 7vw, 48px); font-weight: 400; line-height: 1.1; }
+    h2.get-it-h2 em { font-style: normal; color: var(--orange); }
+    .offerings-grid { display: flex; flex-direction: column; gap: 2px; }
+    .offering-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 32px 24px; }
+    .offering-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
+    .offering-card h3 { font-family: var(--serif); font-size: clamp(20px, 4vw, 28px); font-weight: 400; line-height: 1.2; margin-bottom: 12px; }
+    .offering-card p { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.65; }
+
+    /* FAQ */
+    #faq { background: var(--white); padding: 60px 20px; }
+    .faq-head { margin-bottom: 48px; }
+    .faq-head .label { color: var(--orange); margin-bottom: 14px; }
+    h2.faq-h2 { font-family: var(--serif); font-size: clamp(26px, 6vw, 42px); font-weight: 400; line-height: 1.15; }
+    .faq-list { display: flex; flex-direction: column; }
+    .faq-item { border-bottom: 1px solid var(--rule); }
+    .faq-item:first-child { border-top: 1px solid var(--rule); }
+    .faq-trigger { width: 100%; background: none; border: none; padding: 24px 0; display: flex; align-items: center; justify-content: space-between; gap: 24px; cursor: pointer; text-align: left; }
+    .faq-q { font-family: var(--serif); font-size: clamp(17px, 3vw, 21px); font-weight: 400; line-height: 1.2; color: var(--black); margin: 0; }
+    .faq-icon { flex-shrink: 0; width: 20px; height: 20px; position: relative; }
+    .faq-icon::before, .faq-icon::after { content: ''; position: absolute; background: var(--black); transition: transform 0.3s ease, opacity 0.3s ease; }
+    .faq-icon::before { width: 12px; height: 1.5px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+    .faq-icon::after { width: 1.5px; height: 12px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+    .faq-item.open .faq-icon::after { transform: translate(-50%, -50%) rotate(90deg); opacity: 0; }
+    .faq-body { overflow: hidden; max-height: 0; transition: max-height 0.35s ease; }
+    .faq-item.open .faq-body { max-height: 600px; }
+    .faq-a { font-size: 15px; line-height: 1.75; color: var(--mid); max-width: 68ch; padding-bottom: 24px; }
+
+    @media (min-width: 1024px) {
+      #faq { padding: 100px 48px; }
+      .faq-trigger { padding: 28px 0; }
+      .faq-trigger:hover .faq-q { color: var(--orange); }
+    }
+
+    /* CTA */
+    #cta { background: var(--black); color: var(--white); padding: 80px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.06); }
+    #cta .label { color: rgba(255,255,255,0.28); margin-bottom: 24px; }
+    h2.cta-h2 { font-family: var(--serif); font-size: clamp(44px, 14vw, 100px); font-weight: 400; line-height: 1.0; margin-bottom: 20px; }
+    h2.cta-h2 em { font-style: normal; color: var(--orange); }
+    .cta-sub { font-size: 16px; color: rgba(255,255,255,0.48); max-width: 44ch; margin: 0 auto 40px; line-height: 1.65; }
+    .cta-actions { display: flex; flex-direction: column; gap: 10px; margin-bottom: 48px; }
+    .cta-row { display: flex; flex-direction: column; gap: 24px; align-items: center; padding-top: 36px; border-top: 1px solid rgba(255,255,255,0.07); }
+    .cta-item .ci-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.28); margin-bottom: 8px; }
+    .cta-item a { font-size: 15px; color: var(--orange); font-weight: 500; }
+    .cta-item a:hover { text-decoration: underline; }
+
+    /* FOOTER */
+    footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06); padding: 56px 20px 32px; }
+    .footer-top { margin-bottom: 48px; }
+    .footer-logo { font-size: clamp(18px, 4vw, 28px); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange); text-decoration: none; display: block; margin-bottom: 10px; line-height: 1; }
+    .footer-tagline { font-size: 14px; color: var(--white); line-height: 1.5; margin-bottom: 24px; }
+    .footer-socials { display: flex; gap: 16px; }
+    .footer-socials a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.5); text-decoration: none; font-size: 13px; transition: border-color 0.2s, color 0.2s; }
+    .footer-socials a:hover { border-color: var(--orange); color: var(--orange); }
+    .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px 24px; margin-bottom: 48px; }
+    .footer-col-label { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
+    .footer-col { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { font-size: 14px; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s ease; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.06); }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.2); }
+    @media (min-width: 640px) { .footer-grid { grid-template-columns: repeat(4, 1fr); } }
+    @media (min-width: 1024px) {
+      footer { padding: 72px 48px 40px; }
+      .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+    }
+
+    /* TABLET 640px+ */
+    @media (min-width: 640px) {
+      .pain-grid { grid-template-columns: repeat(2, 1fr); }
+      .for-you-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .offerings-grid { flex-direction: row; }
+      .offering-card { flex: 1; }
+      .proof-row { flex-direction: row; flex-wrap: wrap; }
+      .proof-card { flex: 1; min-width: 200px; }
+      .cta-actions { flex-direction: row; justify-content: center; }
+      .btn { display: inline-block; width: auto; }
+      .story-actions { flex-direction: row; }
+      .hero-actions { flex-direction: row; flex-wrap: wrap; }
+      .cta-row { flex-direction: row; justify-content: center; gap: 60px; }
+    }
+
+    /* DESKTOP 1024px+ */
+    @media (min-width: 1024px) {
+      nav { height: 64px; padding: 0 48px; }
+      .nav-hamburger { display: none; }
+      .nav-links { display: flex; gap: 36px; list-style: none; font-size: 13px; color: var(--mid); }
+      .nav-links a:hover { color: var(--orange); }
+      .nav-cta-inline { display: block; font-size: 13px; font-weight: 700; color: var(--orange); }
+      .nav-drawer { display: none !important; }
+
+      #hero { padding-top: 64px; flex-direction: row; min-height: 100vh; }
+      .hero-text { flex: 55; padding: 80px 60px 80px 48px; }
+      .hero-visual { flex: 45; }
+      .hero-visual .img-box { height: 100%; min-height: 500px; }
+
+      #problem { padding: 100px 48px; }
+      .problem-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-bottom: 72px; }
+      .problem-aside { text-align: right; max-width: 28ch; }
+      .pain-grid { grid-template-columns: repeat(3, 1fr); }
+      .arc { margin-top: 72px; padding-top: 56px; }
+      .arc-row { padding: 16px 0; }
+      .arc-from { font-size: 14px; }
+      .arc-to { font-size: 14px; }
+
+      #for-you { padding: 100px 48px; }
+      .for-you-grid { grid-template-columns: repeat(3, 1fr); }
+
+      #how-it-works { padding: 100px 48px; }
+      .rewire-grid { flex-direction: row; }
+      .rewire-card { flex: 1; }
+
+      #story { flex-direction: row; }
+      .story-visual { flex: 42; }
+      .story-visual .img-box { height: 100%; min-height: 600px; }
+      .story-text { flex: 58; padding: 100px 64px 100px 72px; }
+
+      #logos { padding: 64px 48px; }
+      .logo-placeholder { width: 140px; height: 60px; }
+
+      #proof { padding: 100px 48px; }
+      .proof-row { flex-direction: row; flex-wrap: nowrap; }
+
+      #signature-os { padding: 100px 48px; }
+      .steps-grid { grid-template-columns: repeat(3, 1fr); }
+
+      #get-it { padding: 100px 48px; }
+      .offering-card { padding: 40px 36px; }
+
+      #cta { padding: 140px 48px; }
+    }
+    /* Method hero (H1 block) */
+    .method-hero { background: var(--black); color: var(--white); padding: 120px 20px 56px; }
+    @media (min-width: 1024px) { .method-hero { padding: 140px 48px 72px; } }
+
+    /* OS triad (Signature OS subhead) */
+    .os-triad { display: grid; grid-template-columns: 1fr; gap: 2px; margin: 8px 0 34px; max-width: 860px; }
+    .os-part { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 24px 24px 26px; }
+    .os-num { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); margin-bottom: 14px; }
+    .os-key { font-family: var(--serif); font-size: clamp(21px, 4vw, 27px); font-weight: 400; color: #fff; line-height: 1.15; margin-bottom: 8px; }
+    .os-key em { font-style: italic; color: var(--orange); }
+    .os-val { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+    .br-desk { display: none; }
+    @media (min-width: 760px) { .os-triad { grid-template-columns: repeat(3, 1fr); } .br-desk { display: inline; } }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Backward Brilliance</a>
+  <ul class="nav-links">
+    <li><a href="the-method.html" class="nav-door active">The Method</a></li>
+    <li><a href="about.html" class="nav-door">About</a></li>
+    <li><a href="services.html" class="nav-door">Services</a></li>
+  </ul>
+  <a href="https://calendly.com/will_backwardbrilliance/strategy-session-with-will" target="_blank" class="nav-cta-inline">Let's talk &rarr;</a>
+  <button class="nav-hamburger" aria-label="Open menu" onclick="toggleNav(this)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-drawer" id="navDrawer">
+  <ul>
+    <li><a href="the-method.html" onclick="closeNav()" style="font-weight:700;color:var(--black);">The Method</a></li>
+    <li><a href="about.html" onclick="closeNav()">About</a></li>
+    <li><a href="services.html" onclick="closeNav()">Services</a></li>
+  </ul>
+  <a href="https://calendly.com/will_backwardbrilliance/strategy-session-with-will" target="_blank" class="drawer-cta" onclick="closeNav()">Let's talk &rarr;</a>
+</div>
+
+
+<!-- HERO: THE SIGNATURE OS (core) -->
+<section class="method-hero">
+  <p class="label" style="color:var(--orange); margin-bottom:20px;">The Method</p>
+  <h1 style="font-family:var(--serif); font-size:clamp(40px,9vw,76px); font-weight:400; line-height:1.0; margin-bottom:24px;">The Signature OS</h1>
+  <div class="os-triad">
+    <div class="os-part">
+      <p class="os-num">01 · The State</p>
+      <p class="os-key">Opens the <em>possibility</em></p>
+      <p class="os-val">The right mindset creates the conditions for brilliant thinking.</p>
+    </div>
+    <div class="os-part">
+      <p class="os-num">02 · The Process</p>
+      <p class="os-key">Finds the<br class="br-desk"><em>idea</em></p>
+      <p class="os-val">A deliberate process moves you past the obvious answer.</p>
+    </div>
+    <div class="os-part">
+      <p class="os-num">03 · Repetition</p>
+      <p class="os-key">Builds the <em>intelligence</em></p>
+      <p class="os-val">Run it again and again, and the capability compounds.</p>
+    </div>
+  </div>
+  <p style="font-size:16px; color:rgba(255,255,255,0.55); line-height:1.75; max-width:64ch;">Brilliant ideas are not rare moments of inspiration. They can be developed. The Signature OS is the operating system behind Backward Brilliance: five stages that turn a way of thinking into a repeatable capability, from the right state of mind through to real-world impact.</p>
+</section>
+
+
+<!-- THE SIGNATURE OS: the five stages -->
+<section id="signature-os">
+  <div class="framework-head" style="margin-bottom:32px;">
+    <p class="label">The five stages</p>
+    <h2 class="framework-h2">How occasional insight<br>becomes sustained advantage.</h2>
+  </div>
+
+  <div class="steps-grid">
+    <div class="step-card">
+      <p class="step-num">01</p>
+      <div class="step-body">
+        <h3>The Brilliant State</h3>
+        <p>Belief, audacity, freedom, and perseverance create the conditions for brilliant thinking. The state alone doesn't produce the answer, but nothing brilliant happens without it. It opens the possibility.</p>
+      </div>
+    </div>
+    <div class="step-card">
+      <p class="step-num">02</p>
+      <div class="step-body">
+        <h3>IDEATE</h3>
+        <p>A deliberate way to challenge the familiar, move beyond the obvious, and work the problem until a stronger possibility emerges. IDEATE turns the Brilliant State into a repeatable way of creating brilliant ideas.</p>
+      </div>
+    </div>
+    <div class="step-card">
+      <p class="step-num">03</p>
+      <div class="step-body">
+        <h3>Idea Intelligence</h3>
+        <p>Run the process repeatedly and the thinking becomes natural. You get better at seeing opportunities, shifting perspective, generating possibilities, judging value, and moving ideas into action. A method becomes a capability.</p>
+      </div>
+    </div>
+    <div class="step-card">
+      <p class="step-num">04</p>
+      <div class="step-body">
+        <h3>Brilliant Impact</h3>
+        <p>An idea isn't brilliant because it's clever. It becomes brilliant when it raises the standard, changes action, and creates value that didn't exist before. This is where intelligent ideas become a better reality.</p>
+      </div>
+    </div>
+    <div class="step-card">
+      <p class="step-num">05</p>
+      <div class="step-body">
+        <h3>The Brilliance Arc</h3>
+        <p>One brilliant idea can create impact. The real advantage is doing it repeatedly. The Arc moves you from accepting reality, to exploring possibilities, to creating brilliant ideas, to bringing others along the same path.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- BENEFIT: THE TRANSFORMATION -->
+<section style="background: var(--black); color: var(--white); padding: 40px 20px; border-top: 1px solid rgba(255,255,255,0.06);">
+  <div class="arc">
+    <p class="label" style="color: rgba(255,255,255,0.28); margin-bottom: 12px; text-align: center;">The Transformation</p>
+    <p style="text-align:center; color:rgba(255,255,255,0.5); font-size:15px; line-height:1.6; max-width:46ch; margin:0 auto 8px;">What the method makes possible. This is the promise: the shift from managing what exists to leading with ideas.</p>
+    <div class="arc-header-row">
+      <span class="arc-header-from">The Operator</span>
+      <span class="arc-header-spacer"></span>
+      <span class="arc-header-to">The Idea-Led Leader</span>
+    </div>
+    <div class="arc-row"><span class="arc-from">Managing what exists</span><span class="arc-arrow">&rarr;</span><span class="arc-to">Creating what's next</span></div>
+    <div class="arc-row"><span class="arc-from">Accepting the brief</span><span class="arc-arrow">&rarr;</span><span class="arc-to">Raising the standard</span></div>
+    <div class="arc-row"><span class="arc-from">Following the category</span><span class="arc-arrow">&rarr;</span><span class="arc-to">Defining it</span></div>
+    <div class="arc-row"><span class="arc-from">Relying on familiar answers</span><span class="arc-arrow">&rarr;</span><span class="arc-to">Finding the idea others overlook</span></div>
+    <div class="arc-row"><span class="arc-from">Outspending to win</span><span class="arc-arrow">&rarr;</span><span class="arc-to">Outthinking to win</span></div>
+    <div class="arc-row"><span class="arc-from">One lucky breakthrough</span><span class="arc-arrow">&rarr;</span><span class="arc-to">A repeatable way to create them</span></div>
+    <div class="arc-row"><span class="arc-from">Reacting to the market</span><span class="arc-arrow">&rarr;</span><span class="arc-to">Shaping the conversation</span></div>
+    <div class="arc-row"><span class="arc-from">Running the same plays</span><span class="arc-arrow">&rarr;</span><span class="arc-to">Making rivals play catch-up</span></div>
+    <div class="arc-row"><span class="arc-from">Optimizing to survive</span><span class="arc-arrow">&rarr;</span><span class="arc-to">The first to raise the standard wins</span></div>
+  </div>
+</section>
+
+
+<!-- PROOF (short) -->
+<section id="proof">
+  <p class="label" style="text-align:center; margin-bottom: 16px;">The industry's highest recognition for idea quality. Not execution. Not efficiency. Ideas.</p>
+  <p class="awards-row">Cannes Lions &middot; Effie &middot; The One Show &middot; D&amp;AD &middot; Communication Arts &middot; Clio</p>
+  <div class="proof-inner">
+    <p class="proof-mark">&ldquo;</p>
+    <blockquote class="proof-quote">Will's framework brought a much needed injection of energy to the team. The quality of work immediately improved.</blockquote>
+    <p class="proof-attribution"><strong>Michael McCole</strong>Senior Director Marketing, Masimo Technologies</p>
+  </div>
+</section>
+
+
+<!-- CTA -->
+<section id="cta">
+  <p class="label">Your move.</p>
+  <h2 class="cta-h2">See it work<br><em>on your challenge.</em></h2>
+  <p class="cta-sub">The method is simple to start and limitless in what it unlocks. No system to integrate, no new tech to adopt. Just a different way to compete, from the first conversation.</p>
+  <div class="cta-actions">
+    <a href="https://calendly.com/will_backwardbrilliance/strategy-session-with-will" target="_blank" class="btn btn-primary">Let's talk &rarr;</a>
+    <a href="services.html" class="btn btn-ghost">See ways to work together &rarr;</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <a href="index.html" class="footer-logo">Will Hammond</a>
+    <p class="footer-tagline">Helping ambitious leaders grow on better ideas, not bigger budgets.</p>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/will_backwardbrilliance/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/will-hammond/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <p class="footer-col-label">Start here</p>
+      <a href="https://calendly.com/will_backwardbrilliance/strategy-session-with-will" target="_blank" rel="noopener">Book a call</a>
+      <a href="the-method.html">The method</a>
+      <a href="about.html">About Will</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-label">Work with Will</p>
+      <a href="services.html">Keynote</a>
+      <a href="services.html">&frac12;-Day Workshop</a>
+      <a href="services.html">1:1 Coaching</a>
+      <a href="services.html">Corporate Transformation</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-label">Connect</p>
+      <a href="mailto:will@backwardbrilliance.com">Speaking enquiries</a>
+      <a href="mailto:will@backwardbrilliance.com">Podcast enquiries</a>
+      <a href="mailto:will@backwardbrilliance.com">will@backwardbrilliance.com</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-label">The necessary stuff</p>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2026 Backward Brilliance. All rights reserved.</p>
+    <p class="footer-copy">Will Hammond &middot; Strategic Advisor &amp; Keynote Speaker</p>
+  </div>
+</footer>
+
+<script>
+  function toggleNav(btn) { btn.classList.toggle('open'); document.getElementById('navDrawer').classList.toggle('open'); }
+  function closeNav() { document.querySelector('.nav-hamburger').classList.remove('open'); document.getElementById('navDrawer').classList.remove('open'); }
+</script>
+
+</body>
+</html>
