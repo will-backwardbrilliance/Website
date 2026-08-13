@@ -349,6 +349,17 @@
 
     /* FOOTER */
     footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06); padding: 56px 20px 32px; }
+    .footer-signup { display: flex; flex-direction: column; gap: 22px; padding-bottom: 44px; margin-bottom: 44px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-signup-label { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 12px; }
+    .footer-signup-h { font-family: var(--serif); font-size: clamp(22px, 4vw, 32px); font-weight: 400; line-height: 1.15; color: var(--white); max-width: 22ch; }
+    .footer-signup-form { display: flex; gap: 10px; width: 100%; max-width: 460px; }
+    .footer-signup-form input { flex: 1; min-width: 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.16); color: var(--white); padding: 15px 16px; font-size: 15px; font-family: var(--sans); }
+    .footer-signup-form input::placeholder { color: rgba(255,255,255,0.4); }
+    .footer-signup-form input:focus { outline: none; border-color: var(--orange); }
+    .footer-signup-form button { background: var(--orange); color: var(--white); border: none; padding: 15px 24px; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; cursor: pointer; white-space: nowrap; font-family: var(--sans); transition: background 0.18s; }
+    .footer-signup-form button:hover { background: #cf4b18; }
+    .footer-signup-note { font-size: 12px; color: rgba(255,255,255,0.32); margin-top: 10px; }
+    @media (min-width: 760px) { .footer-signup { flex-direction: row; align-items: center; justify-content: space-between; gap: 48px; } .footer-signup-form { flex: 0 0 auto; width: 460px; } }
     .footer-top { margin-bottom: 48px; }
     .footer-logo { font-size: clamp(18px, 4vw, 28px); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange); text-decoration: none; display: block; margin-bottom: 10px; line-height: 1; }
     .footer-tagline { font-size: 14px; color: var(--white); line-height: 1.5; margin-bottom: 24px; }
@@ -838,6 +849,19 @@
 </section>
 
 <footer>
+  <div class="footer-signup">
+    <div class="footer-signup-copy">
+      <p class="footer-signup-label">The newsletter</p>
+      <h3 class="footer-signup-h">Better ideas, straight to your inbox.</h3>
+    </div>
+    <div>
+      <form class="footer-signup-form" action="https://app.kit.com/forms/9798981/subscriptions" method="post">
+        <input type="email" name="email_address" placeholder="you@company.com" required aria-label="Email address" />
+        <button type="submit">Subscribe &rarr;</button>
+      </form>
+      <p class="footer-signup-note">No spam. Unsubscribe anytime.</p>
+    </div>
+  </div>
   <div class="footer-top">
     <a href="index.html" class="footer-logo">Will Hammond</a>
     <p class="footer-tagline">Helping ambitious leaders grow on better ideas, not bigger budgets.</p>
