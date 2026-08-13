@@ -115,8 +115,8 @@
       .nav-cta-inline { display: block; font-size: 13px; font-weight: 700; color: var(--orange); }
       .nav-drawer { display: none !important; }
       #story { flex-direction: row; padding-top: 64px; }
-      .story-visual { flex: 42; }
-      .story-visual .img-box { height: 100%; min-height: 640px; }
+      .story-visual { flex: 42; align-self: flex-start; position: sticky; top: 64px; }
+      .story-visual .img-box { height: auto; min-height: 0; aspect-ratio: 936 / 1248; }
       .story-text { flex: 58; padding: 100px 64px 100px 72px; }
     }
   </style>
@@ -150,7 +150,10 @@
 <!-- STORY -->
 <section id="story">
   <div class="story-visual">
-    <div class="img-box"><img src="will-headshot.jpg" alt="Will Hammond — Keynote Speaker, Strategic Advisor & Creator of Backward Brilliance" /></div>
+    <div class="img-box"><picture>
+      <source media="(min-width: 1024px)" srcset="about-headshot-desktop.jpg" />
+      <img src="about-headshot-mobile.jpg" alt="Will Hammond — Keynote Speaker, Strategic Advisor & Creator of Backward Brilliance" />
+    </picture></div>
   </div>
 
   <div class="story-text">

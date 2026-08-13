@@ -59,7 +59,7 @@
         "description": "A signature keynote introducing Backward Brilliance and Idea-Led leadership. Audiences leave with a way of thinking they can apply immediately.",
         "provider": { "@id": "https://backwardbrilliance.com/#will-hammond" },
         "serviceType": "Keynote Speaking",
-        "offers": { "@type": "Offer", "price": "7500", "priceCurrency": "USD" }
+        "offers": { "@type": "Offer", "price": "1000", "priceCurrency": "USD" }
       },
       {
         "@type": "Service",
@@ -167,9 +167,7 @@
     /* SHARED */
     .label { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; }
     .img-box { background: #e8e4dc; position: relative; overflow: hidden; }
-    .img-box::before { content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to bottom right, transparent calc(50% - .5px), #d0ccc4 calc(50% - .5px), #d0ccc4 calc(50% + .5px), transparent calc(50% + .5px)),
-                  linear-gradient(to bottom left,  transparent calc(50% - .5px), #d0ccc4 calc(50% - .5px), #d0ccc4 calc(50% + .5px), transparent calc(50% + .5px)); }
+    .img-box::before { content: none; }
     .img-box span { position: absolute; bottom: 16px; left: 20px; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); opacity: 0.45; }
     .img-box-dark { background: #1a1a1a; }
 
@@ -490,7 +488,10 @@
   </div>
 
   <div class="hero-visual">
-    <div class="img-box img-box-dark"><img src="will-headshot.jpg" alt="Will Hammond — Leadership Coach & Advisor" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" /></div>
+    <div class="img-box img-box-dark"><picture>
+      <source media="(min-width: 1024px)" srcset="technology-desktop.jpg" />
+      <img src="technology-mobile.jpg" alt="Will Hammond — Leadership Coach & Advisor" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
+    </picture></div>
     <div class="hero-pull">
       <p>"Your competitors are counting on you<br><em>to stay ordinary.</em>"</p>
     </div>
