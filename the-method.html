@@ -23,7 +23,7 @@
       --black:  #0a0a0a;
       --white:  #f8f6f1;
       --orange: #e85d26;
-      --mid:    #4a4a4a;
+      --mid:    #5c5c5c;
       --rule:   #d8d3cb;
       --card:   #f0ede6;
       --serif:  'Georgia', 'Times New Roman', serif;
@@ -65,9 +65,7 @@
     /* SHARED */
     .label { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; }
     .img-box { background: #e8e4dc; position: relative; overflow: hidden; }
-    .img-box::before { content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to bottom right, transparent calc(50% - .5px), #d0ccc4 calc(50% - .5px), #d0ccc4 calc(50% + .5px), transparent calc(50% + .5px)),
-                  linear-gradient(to bottom left,  transparent calc(50% - .5px), #d0ccc4 calc(50% - .5px), #d0ccc4 calc(50% + .5px), transparent calc(50% + .5px)); }
+    .img-box::before { content: none; }
     .img-box span { position: absolute; bottom: 16px; left: 20px; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); opacity: 0.45; }
     .img-box-dark { background: #1a1a1a; }
 
@@ -112,7 +110,7 @@
     .pain-card p { font-family: var(--serif); font-size: 17px; font-style: italic; line-height: 1.55; color: rgba(255,255,255,0.78); }
 
     /* Arc */
-    .arc { margin-top: 56px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.07); display: flex; flex-direction: column; }
+    .arc { display: flex; flex-direction: column; }
     .arc-header-row { display: flex; align-items: center; gap: 12px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 4px; }
     .arc-header-from { flex: 1; font-family: var(--serif); font-size: clamp(22px, 4vw, 38px); font-weight: 400; letter-spacing: 0; text-transform: none; color: rgba(255,255,255,0.28); text-align: right; line-height: 1.1; }
     .arc-header-spacer { width: 32px; flex-shrink: 0; }
@@ -173,9 +171,10 @@
     /* PROOF */
     #proof { background: var(--orange); color: var(--white); padding: 60px 20px; }
     .proof-inner { max-width: 740px; margin: 0 auto; text-align: center; }
+    .proof-headline { font-family: var(--serif); font-size: clamp(30px, 7vw, 52px); font-weight: 400; line-height: 1.1; margin-bottom: 20px; }
     .awards-row { text-align: center; margin-bottom: 56px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
     .proof-mark { font-family: var(--serif); font-size: 64px; line-height: 0.7; opacity: 0.25; margin-bottom: 28px; }
-    .proof-quote { font-family: var(--serif); font-size: clamp(20px, 5vw, 38px); font-style: italic; font-weight: 400; line-height: 1.4; margin-bottom: 24px; }
+    .proof-quote { font-family: var(--serif); font-size: 17px; font-style: italic; font-weight: 400; line-height: 1.6; max-width: 56ch; margin: 0 auto 22px; color: rgba(255,255,255,0.9); }
     .proof-attribution { font-size: 13px; color: rgba(255,255,255,0.65); }
     .proof-attribution strong { display: block; color: var(--white); font-weight: 600; font-size: 14px; margin-bottom: 2px; }
     .proof-row { display: flex; flex-direction: column; gap: 2px; margin-top: 48px; text-align: left; }
@@ -302,7 +301,7 @@
       .problem-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-bottom: 72px; }
       .problem-aside { text-align: right; max-width: 28ch; }
       .pain-grid { grid-template-columns: repeat(3, 1fr); }
-      .arc { margin-top: 72px; padding-top: 56px; }
+      .arc { margin-top: 0; padding-top: 0; }
       .arc-row { padding: 16px 0; }
       .arc-from { font-size: 14px; }
       .arc-to { font-size: 14px; }
@@ -346,7 +345,19 @@
     .os-val { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.6; }
     .br-desk { display: none; }
     @media (min-width: 760px) { .os-triad { grid-template-columns: repeat(3, 1fr); } .br-desk { display: inline; } }
-  </style>
+      /* PROMISED LAND */
+    #promised-land { background: var(--orange); color: var(--white); padding: 60px 20px; }
+    .pl-head { max-width: 820px; margin: 0 auto; text-align: center; }
+    .pl-head .label { color: rgba(255,255,255,0.6); margin-bottom: 16px; }
+    .pl-head h2 { font-family: var(--serif); font-size: clamp(28px, 7vw, 48px); font-weight: 400; line-height: 1.1; margin-bottom: 18px; }
+    .pl-head p { font-size: 16px; color: rgba(255,255,255,0.82); line-height: 1.7; max-width: 54ch; margin: 0 auto; }
+    .pl-grid { display: flex; flex-direction: column; gap: 2px; max-width: 980px; margin: 40px auto 0; }
+    .pl-card { background: rgba(0,0,0,0.14); padding: 30px 26px; }
+    .pl-card h3 { font-family: var(--serif); font-size: clamp(20px, 3.5vw, 24px); font-weight: 400; line-height: 1.15; margin-bottom: 12px; color: #fff; }
+    .pl-card p { font-size: 14px; line-height: 1.65; color: rgba(255,255,255,0.8); }
+    @media (min-width: 760px) { .pl-grid { flex-direction: row; } .pl-card { flex: 1; } }
+    @media (min-width: 1024px) { #promised-land { padding: 100px 48px; } }
+</style>
 </head>
 <body>
 
@@ -446,11 +457,35 @@
 </section>
 
 
+<!-- PROMISED LAND (the transformed state) -->
+<section id="promised-land">
+  <div class="pl-head">
+    <p class="label">Idea-led growth</p>
+    <h2>Brilliant ideas don't just solve.<br>They build advantage.</h2>
+    <p>When ideas are your engine, not an accident, it shows up everywhere: in your work, in your team, and in results people can't ignore.</p>
+  </div>
+
+  <div class="pl-grid">
+    <div class="pl-card">
+      <h3>The winning move, on demand</h3>
+      <p>You stop waiting for lightning. You produce the breakthrough when the moment calls for it, and you have the strategic confidence to back it.</p>
+    </div>
+    <div class="pl-card">
+      <h3>Beyond-category growth</h3>
+      <p>Not another incremental quarter. Growth that breaks past what your category thought was possible, built on ideas that create an advantage rivals can't copy.</p>
+    </div>
+    <div class="pl-card">
+      <h3>Audacious results, on repeat</h3>
+      <p>Your best result stops being the exception. It becomes the standard, and your team rises to the same altitude you do.</p>
+    </div>
+  </div>
+</section>
+
+
 <!-- BENEFIT: THE TRANSFORMATION -->
 <section style="background: var(--black); color: var(--white); padding: 40px 20px; border-top: 1px solid rgba(255,255,255,0.06);">
   <div class="arc">
     <p class="label" style="color: rgba(255,255,255,0.28); margin-bottom: 12px; text-align: center;">The Transformation</p>
-    <p style="text-align:center; color:rgba(255,255,255,0.5); font-size:15px; line-height:1.6; max-width:46ch; margin:0 auto 8px;">What the method makes possible. This is the promise: the shift from managing what exists to leading with ideas.</p>
     <div class="arc-header-row">
       <span class="arc-header-from">The Operator</span>
       <span class="arc-header-spacer"></span>
@@ -471,11 +506,9 @@
 
 <!-- PROOF (short) -->
 <section id="proof">
-  <p class="label" style="text-align:center; margin-bottom: 16px;">The industry's highest recognition for idea quality. Not execution. Not efficiency. Ideas.</p>
-  <p class="awards-row">Cannes Lions &middot; Effie &middot; The One Show &middot; D&amp;AD &middot; Communication Arts &middot; Clio</p>
   <div class="proof-inner">
-    <p class="proof-mark">&ldquo;</p>
-    <blockquote class="proof-quote">Will's framework brought a much needed injection of energy to the team. The quality of work immediately improved.</blockquote>
+    <h2 class="proof-headline">Not a talk. A rewire.</h2>
+    <blockquote class="proof-quote">&ldquo;Will's framework brought a much needed injection of energy to the team. The quality of work immediately improved.&rdquo;</blockquote>
     <p class="proof-attribution"><strong>Michael McCole</strong>Senior Director Marketing, Masimo Technologies</p>
   </div>
 </section>
